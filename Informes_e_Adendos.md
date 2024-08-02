@@ -7,8 +7,6 @@ Router Cisco 2911 (img 002).
 
 O nosso laboratório do SENAC tem três bancadas e mais de 20 pontos pra serem ligados no rack. Todos os cabos, antes de serem ligados em cada switch, são reunidos em dois Patch Panel (**modelo**) com 24 portas cada. As portas do Patch Panel correspondem aos pontos de rede nas bancadas.
 
-O projeto prevê cinco pontos para cada grupo. Especificadamente, o meu grupo é o 02 e ficamos com os pontos (**numerar os pontos**).
-
 O rack é (**modelo do rack**) (img 003) com (**tipo de rack**). O rack é compartilhado por todos os seis grupos em ordem crescente de cima para baixo.
 
 Entre o segundo Patch Panel e o Switch do grupo 01 se encontra o Router 4321 (img 004) (e acho que o switch também) do professor, que faz o papel de Provedor de Internet (ISP).
@@ -21,3 +19,18 @@ O primeiro acesso para configuração do Switch e do Router é feito via cabo co
 Os Router de todos os grupos estão conectados em *ring topology* por cabos seriais (img 005) (**especificar o tipo de cabo**).
 
 O Access Point é um D-link Dir846 (**confirmar**).
+
+### LOGÍSTICA
+O projeto prevê cinco pontos para cada grupo. Especificamente, o meu grupo é o 02.
+
+O endereço IP de todas as redes locais têm o prefixo 172.16.x.x e cada um dos cinco pontos será uma vlan. A número da vlan é pradronizadamente um número de dois dígitos, onde o dígito da dezena equivale ao dígito do grupo. Como serão seis vlan ao todo (O SVI do Switch será separado em uma vlan), os endereços IP da minha rede local serão:
+~~~
+172.16.20.x
+172.16.21.x
+172.16.22.x
+172.16.23.x
+172.16.24.x
+172.16.25.x
+~~~
+
+Embora o Switch seja layer 3 (**o que significa 3 layers**), usaremos o Router para interligar as redes de cada grupo e ser o servidor DHCP. Entende-se com isso que o Access Point agirá apenas como cliente DHCP.
