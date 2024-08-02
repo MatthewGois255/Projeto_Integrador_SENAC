@@ -11,14 +11,14 @@ O rack é (**modelo do rack**) (img 003) com (**tipo de rack**). O rack é compa
 
 Entre o segundo Patch Panel e o Switch do grupo 01 se encontra o Router 4321 (img 004) (e acho que o switch também) do professor, que faz o papel de Provedor de Internet (ISP).
 
+Acess Point D-link Dir846
+
 ### CABEAMENTO
 Se não houver nenhuma observação, as conexões citadas são por meio de Patch Cables UTP CAT**modelo do cabo**.
 
-O primeiro acesso para configuração do Switch e do Router é feito via cabo console (rj45 - db9) pelo Putty. Vale resaltar que as nossas estações possuem conexão db9. Caso contrário, um cabo console USB poderia ser usado. O Router está ligado ao Switch (**porta do switch ligado ao router** - G0/0). Posteriormente o Telnet vai ser ativo no Switch e o cabo console não será mais necessário.
+O primeiro acesso para configuração do Switch e do Router é feito via cabo console (rj45 - db9) pelo Putty. Vale resaltar que as nossas estações possuem conexão db9. Caso contrário, um cabo console USB poderia ser usado. Posteriormente o Telnet vai ser ativo no Switch e o cabo console não será mais necessário.
 
-Os Router de todos os grupos estão conectados em *ring topology* por cabos seriais (img 005) (**especificar o tipo de cabo**).
-
-O Access Point é um D-link Dir846 (**confirmar**).
+Os Router de todos os grupos estão conectados em *ring topology* por interface DCE/DTE.
 
 ### LOGÍSTICA
 O projeto prevê cinco pontos para cada grupo. Especificamente, o meu grupo é o 02.
@@ -33,4 +33,8 @@ O endereço IP de todas as redes locais têm o prefixo 172.16.x.x e cada um dos 
 172.16.25.x
 ~~~
 
-Embora o Switch seja layer 3 (**o que significa 3 layers**), usaremos o Router para interligar as redes de cada grupo e ser o servidor DHCP. Entende-se com isso que o Access Point agirá apenas como cliente DHCP.
+Embora o Switch seja layer 3, usaremos o Router para interligar as redes de cada grupo e fazer DHCP. O servidor DHCP do Acess Point será desativado.
+
+Para entender as Vlans, foram configuradas Subnets.
+
+O Router está ligado ao Switch (F0/24 - G0/0). Para passar as Vlans para o Router, foram criadas Subnets na interface G0/0.
