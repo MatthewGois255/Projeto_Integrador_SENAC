@@ -1,4 +1,4 @@
-Não vou entrar em detalhes de como restaurar os dispositivos às configurações de fábrica.
+Essa documentação não entra em detalhes de como restaurar os dispositivos às configurações de fábrica.
 
 No modo Privileged EXEC, configurar a hora e data em inglês:
 ~~~
