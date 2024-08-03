@@ -31,6 +31,8 @@ O endereço IP de todas as redes locais têm o prefixo 172.16.x.x e cada um dos 
 172.16.25.x
 ~~~
 
+"123@senac" foi usado como senha padrão para todos os dispositivos e usuários.
+
 Embora o Switch seja layer 3, usaremos o Router para interligar as redes de cada grupo e fazer DHCP. O servidor DHCP do Acess Point será desativado.
 
 ![](imgs/img01.jpg)
