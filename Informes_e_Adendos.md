@@ -33,5 +33,6 @@ O endereço IP de todas as redes locais têm o prefixo 172.16.x.x e cada um dos 
 
 Embora o Switch seja layer 3, usaremos o Router para interligar as redes de cada grupo e fazer DHCP. O servidor DHCP do Acess Point será desativado.
 
+<img scr="imgs/img01.jpg" alt="" style="width: 621px;"/>
 ![](imgs/img01.jpg)
 ![](imgs/img02.jpg)
