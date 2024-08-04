@@ -69,10 +69,23 @@ Impedir que mensagens do sistema interrompam na digitação
 ~~~
   logging synchronous
 ~~~
-estabelecer um tempo máximo de inatividade na porta console. Configurar o tempo para 0 0 desabilita a função
+estabelecer um tempo máximo de inatividade na porta console. Os parâmetros são minutos e segundos. Configurar o tempo para 0 0 desabilita a função
 ~~~
-  exec-timeout mm ss
+  exec-timeout 5 30
 ~~~
+
+<br>
+<br>
+
+Configurar as linhas virtuais para o acesso remoto. Os comandos são praticamente os mesmo, com excessão do tipo de protocolo
+~~~
+line vty 0 4
+  login local
+  logging synchronous
+  exec-timeout 5 30
+  transport input ssh
+~~~
+
 Finalmente volta ao modo EXEC privilegiado, salva e checa a *running-config*
 ~~~
   end
