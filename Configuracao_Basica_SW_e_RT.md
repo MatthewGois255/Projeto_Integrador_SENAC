@@ -72,12 +72,15 @@ Impedir que mensagens do sistema interrompam na digitação
 estabelecer um tempo máximo de inatividade na porta console. Os parâmetros são minutos e segundos. Configurar o tempo para 0 0 desabilita a função
 ~~~
   exec-timeout 5 30
+  end
 ~~~
 
 <br>
 <br>
 
-Configurar as linhas virtuais para o acesso remoto. Os comandos são praticamente os mesmo, com excessão do tipo de protocolo
+### SSH e acesso remoto
+
+Configurar as linhas virtuais para o acesso. Os comandos são praticamente os mesmos da linha console, com excessão do tipo de protocolo (que não queremos que seja Telnet)
 ~~~
 line vty 0 4
   login local
@@ -85,8 +88,25 @@ line vty 0 4
   exec-timeout 5 30
   transport input ssh
 ~~~
+O nome de domínio é necessário para a criptografia do ssh
+~~~
+  ip domain-name ...
+~~~
+Gera pares de chaves rsa e habilitar a versão 2 do ssh
+~~~
+  crypto key generate rsa general-keys modulus 1024
+  ip ssh version 2
+~~~
+Basicamente o serviço SSH já foi configurado. Agora são outras configurações como limitar o tempo de inatividade (em segundos)
+~~~
+ip ssh time-out 60
+~~~
+Número máximo de tentativas de conexão do SSH
+~~~
+ip ssh authentication-retries 2
+~~~
 
-Finalmente volta ao modo EXEC privilegiado, salva e checa a *running-config*
+Finalmente de volta ao modo EXEC privilegiado, é só salvar e checar a *running-config*
 ~~~
   end
 copy running-config startup-config
