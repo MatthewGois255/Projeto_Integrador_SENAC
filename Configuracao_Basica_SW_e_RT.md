@@ -42,16 +42,16 @@ Bloquear temporariamente a conexão em caso de muitas tentativas malsucedidas de
 ~~~
   no ip domain-lookup
 ~~~
-
-
-As senhas *password* não têm criptografia e ficam ficam disponíveis em *plain text* na *running-config*. Esse comando habilita a encriptação delas em md5 hash
+As senhas *password* não têm criptografia e ficam disponíveis em *plain text* na *running-config*. Esse comando habilita a encriptação delas em md5 hash
 ~~~
   service password-encryption
 ~~~
 <br>
 <br>
 
-Acessando as configurações da porta console
+### PORTA CONSOLE
+
+Acessando a linha console
 ~~~
 line console 0
 ~~~
@@ -70,8 +70,6 @@ Impedir que mensagens do sistema interrompam na digitação
 ~~~
   logging synchronous
 ~~~
-<br>
-
 Estabelecer um tempo máximo de inatividade na porta console. Os parâmetros são minutos e segundos. Configurar o tempo para 0 0 desabilita a função
 ~~~
   exec-timeout 5 30
@@ -81,16 +79,8 @@ Estabelecer um tempo máximo de inatividade na porta console. Os parâmetros sã
 <br>
 <br>
 
-### SSH e acesso remoto
+### SSH E ACESSO REMOTO
 
-Configurar as linhas virtuais para o acesso. Os comandos são praticamente os mesmos da linha console, com excessão do tipo de protocolo (que não queremos que seja Telnet)
-~~~
-line vty 0 4
-  login local
-  logging synchronous
-  exec-timeout 5 30
-  transport input ssh
-~~~
 O nome de domínio é necessário para a criptografia do ssh
 ~~~
   ip domain-name ...
@@ -100,7 +90,7 @@ Gera pares de chaves rsa e habilitar a versão 2 do ssh
   crypto key generate rsa general-keys modulus 1024
   ip ssh version 2
 ~~~
-Basicamente o serviço SSH já foi configurado. Agora são outras configurações como limitar o tempo de inatividade (em segundos)
+Agora são outras configurações como limitar o tempo de inatividade (em segundos)
 ~~~
 ip ssh time-out 60
 ~~~
@@ -108,6 +98,16 @@ Número máximo de tentativas de conexão do SSH
 ~~~
 ip ssh authentication-retries 2
 ~~~
+
+Configurar as linhas virtuais para o acesso. Os comandos são praticamente os mesmos da linha console, com excessão do tipo de protocolo (que não queremos que seja Telnet)
+~~~
+line vty 0 4
+  login local
+  logging synchronous
+  exec-timeout 5 30
+  transport input ssh
+~~~
+
 
 Finalmente de volta ao modo EXEC privilegiado, é só salvar e checar a *running-config*
 ~~~
