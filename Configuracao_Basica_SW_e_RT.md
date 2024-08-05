@@ -35,7 +35,7 @@ No nosso projeto nós habilitamos o serviço de marcação de data e hora com mi
 ~~~
   service timestamps log datetime msec
 ~~~
-Bloquear temporariamente a conexão em caso de muitas tentativas malsucedidas dentro de um intervalo. Os parâmetros são respectivamente tempo bloqueado, tentativas erradas e intervalo máximo para errar tentativas
+Bloquear temporariamente a conexão em caso de muitas tentativas malsucedidas dentro de um intervalo. Os parâmetros são respectivamente *tempo bloqueado*, *tentativas erradas* e *intervalo máximo para errar tentativas*
 ~~~
   login block-for 120 attemps 4 within 60
 ~~~
@@ -60,7 +60,7 @@ No nosso projeto, tanto o usuário como a senha são pedidas para ter acesso à 
 ~~~
   login local
 ~~~
-Mas se não quisessemos usar os usuários configurados no modo global, poderíamos criar uma senha apenas para acessar o console
+Caso não quisessemos usar os usuários configurados no modo global, poderíamos criar uma senha apenas para acessar o console com os seguintes comandos:
 ~~~
   password 123@senac
   login
