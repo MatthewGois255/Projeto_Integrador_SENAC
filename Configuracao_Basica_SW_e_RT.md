@@ -26,12 +26,11 @@ Nosso projeto previa a criação de um usuário para cada integrante do grupo. A
 ~~~
   username ... privilege 15 secret ...
 ~~~
-Importante notar que esses usuários não são usados para autentificação a menos que você especifique na configuração das linhas console e vty com o comando "login local".
+Importante notar que esses usuários não serão usados para autentificação a menos que se especifique na configuração das linhas console e vty com o comando "login local"
 
 <br>
-<br>
 
-No nosso projeto nós habilitamos o serviço de marcação de data e hora com milisegundos nos logs, mas é uma configuração opcional
+No nosso projeto habilitamos o serviço de marcação de data e hora com milisegundos nos logs, mas é uma configuração opcional
 ~~~
   service timestamps log datetime msec
 ~~~
@@ -65,11 +64,15 @@ Caso não quisessemos usar os usuários configurados no modo global, poderíamos
   password 123@senac
   login
 ~~~
+<br>
+
 Impedir que mensagens do sistema interrompam na digitação
 ~~~
   logging synchronous
 ~~~
-estabelecer um tempo máximo de inatividade na porta console. Os parâmetros são minutos e segundos. Configurar o tempo para 0 0 desabilita a função
+<br>
+
+Estabelecer um tempo máximo de inatividade na porta console. Os parâmetros são minutos e segundos. Configurar o tempo para 0 0 desabilita a função
 ~~~
   exec-timeout 5 30
   end
