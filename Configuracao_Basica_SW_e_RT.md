@@ -1,6 +1,6 @@
-**Essa documentação não entra em detalhes de como restaurar os dispositivos às configurações de fábrica**
+**Essa documentação não entra em detalhes de como restaurar os dispositivos às configurações de fábrica.**
 
-Nessa etapa das configurações básicas a sequência dos comandos não importa tanto. Eu presei por seguir uma sequência lógica que favorecesse a explicação do passo a passo.
+Nessa etapa das configurações básicas a sequência dos comandos não importa tanto. Presei por seguir uma sequência lógica que favorecesse a explicação do passo a passo.
 
 <br>
 <br>
