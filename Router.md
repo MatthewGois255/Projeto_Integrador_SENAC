@@ -7,10 +7,12 @@ A configuração básica, das linhas e do SSH no Router são praticamente idênt
 ~~~
 no
 enable
-$conf t
-$$hostname "nome do Router"
+$clock set ...
+conf t
+$$hostname ...
 enable password ...
-
 username ... privilege 15 secret ...
-
+service timestamp log datetime
+service password-encryption
+no ip domain-lookup
 ~~~
