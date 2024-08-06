@@ -142,21 +142,18 @@ interface f0/7 -23
   shutdown
   exit
 ~~~
-
-
-
-
-
-
-
-
-
-
-
-
-Finalmente de volta ao modo EXEC privilegiado, é só salvar e checar a *running-config*
+Configuração do trunk com o Router. A inteface escolhida foi a 0/24
 ~~~
-  end
+interface f0/24
+  switchport trunk encapsulation dot1q
+  switchport mode trunk
+  exit
+~~~
+<br>
+<br>
+
+E aqui se encerra a configuração do Switch. Ficam faltando o Router e o Access Point. Para finalizar, passamos as configurações da RAM para a NVRAM e salvamos uma cópia para o cartão de memória Flash
+~~~
 copy running-config startup-config
-show running-config
+copy startup-config flash:
 ~~~
