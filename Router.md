@@ -19,5 +19,11 @@ no ip domain-lookup
 $$$line console 0
 login local
 logging synchronous
-exec time-out ...
+exec time-out ... ...
+
+line vty 0 4
+login local
+logging synchronous
+exec time-out ... ...
+transport input ssh
 ~~~
