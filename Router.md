@@ -26,4 +26,7 @@ login local
 logging synchronous
 exec time-out ... ...
 transport input ssh
+end
+$$ip domain-name ...
+crypto generate rsa general-keys modulus 1024
 ~~~
