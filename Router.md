@@ -7,30 +7,45 @@ A configuração básica, das linhas e do SSH no Router são praticamente idênt
 ~~~
 no
 enable
-$clock set ... ...
-conf t
-$$hostname ...
-enable password ...
-username ... privilege 15 secret ...
-login block-for ... attemps ... within ...
-service timestamps log datetime msec
-service password-encryption
-no ip domain-lookup
-$$$line console 0
-login local
-logging synchronous
-exec time-out ... ...
-
-line vty 0 4
-login local
-logging synchronous
-exec time-out ... ...
-transport input ssh
-end
-$$ip domain-name ...
-crypto key generate rsa general-keys modulus 1024
-ip ssh version 2
-ip ssh time-out ...
-ip ssh authentication-retries ...
-
+  clock set ... ...
+  conf t
+    hostname ...
+    enable password ...
+    username ... privilege 15 secret ...
+    login block-for ... attemps ... within ...
+    service timestamps log datetime msec
+    service password-encryption
+    no ip domain-lookup
+      line console 0
+      login local
+      logging synchronous
+      exec time-out ... ...
+      
+      line vty 0 4
+      login local
+      logging synchronous
+      exec time-out ... ...
+      transport input ssh
+      end
+    ip domain-name ...
+    crypto key generate rsa general-keys modulus 1024
+    ip ssh version 2
+    ip ssh time-out ...
+    ip ssh authentication-retries ...
 ~~~
+<br>
+
+Para o Router acessar as VLANs precisamos configurar o Trunk na interface do Switch e as Subinterfaces no Router
+
+Esse é um conceito interessante. VLAN são LANs virtuais. Ou seja, elas não são redes físicas, mas são interpretadas pelo sistema como uma. Sendo virtuais, não precisamos ter uma interface para cada VLAN no Router, apenas uma que ligue-o ao Switch (Router-on-a-stick, Router ligado a uma rede por apenas uma conexão). Cada uma das VLANs descritas teram o seu próprio default gateway
+~~~
+    interface gigabitethernet 0/0
+      no shutdown
+    interface gigabitethernet 0/0."número da vlan"
+      encapsulation dot1q "número da vlan"
+      ip address "gateway da vlan" "máscara de rede"
+      exit
+~~~
+Esse processo se repete para cada VLAN, com excessão da de gerenciamento cujo gateway padrão está no próprio switch layer 3 (já que é uma VLAN só para acessar o Switch e não se necessariamente se comunicar com outras redes). Esse "dot1q" é o protocolo usado para o trunk
+
+Será por esse IP do gateway configurado que acessaremos o Router remotamente
